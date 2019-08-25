@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/fire_mob.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Tilesheet/towerDefense_tilesheet.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 77.3623
+height = 36.6861
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.788235, 0, 0, 1 )
+
+[node name="fire_mob" type="Area2D"]
+scale = Vector2( 0.189852, 0.191488 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( -1.77479, -3.82108 )
+scale = Vector2( 4.75768, 4.74875 )
+z_index = 3
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1280, 768, 64, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.967115, 1.12209 )
+shape = SubResource( 1 )
+
+[node name="healthBar" type="ProgressBar" parent="."]
+margin_left = -58.098
+margin_top = -123.94
+margin_right = 60.902
+margin_bottom = -96.9404
+custom_styles/fg = SubResource( 2 )
+max_value = 6.0
+step = 1.0
+value = 6.0
+percent_visible = false

@@ -1,0 +1,228 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Tilesets/gameTileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/red_green_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/xpBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/UI/grey_panel.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/mainAttackButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/towerButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/stoneButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/waveStartButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Tilesheet/medievalStructure_21.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/medievalEnvironment_21.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Tilesheet/towerDefense_tilesheet.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0313726, 0.0313726, 0.0313726, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 1
+
+[node name="World" type="Node"]
+script = ExtResource( 1 )
+
+[node name="nav" type="Navigation2D" parent="."]
+editor/display_folded = true
+
+[node name="map" type="TileMap" parent="nav"]
+tile_set = ExtResource( 2 )
+format = 1
+tile_data = PoolIntArray( 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 7, 0, 11, 7, 0, 12, 7, 0, 13, 7, 0, 14, 7, 0, 15, 7, 0, 16, 7, 0, 17, 7, 0, 65536, 7, 0, 65537, 1, 0, 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 2, 0, 65546, 2, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 1, 0, 65552, 1, 0, 65553, 7, 0, 131072, 7, 0, 131073, 2, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 1, 0, 131089, 7, 0, 196608, 7, 0, 196609, 2, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 7, 0, 262144, 7, 0, 262145, 0, 0, 262146, 0, 0, 262147, 1, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 2, 0, 262152, 0, 0, 262153, 0, 0, 262154, 2, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 2, 0, 262159, 0, 0, 262160, 2, 0, 262161, 7, 0, 327680, 7, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 2, 0, 327685, 0, 0, 327686, 0, 0, 327687, 2, 0, 327688, 5, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 2, 0, 327697, 7, 0, 393216, 7, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 3, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 7, 0, 458752, 7, 0, 458753, 2, 0, 458754, 2, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 4, 0, 458761, -1610612733, 0, 458762, 1610612740, 0, 458763, 0, 0, 458764, 2, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 7, 0, 524288, 7, 0, 524289, 1, 0, 524290, 1, 0, 524291, 2, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 1610612739, 0, 524299, 2, 0, 524300, 1, 0, 524301, 1, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 7, 0, 589824, 7, 0, 589825, 7, 0, 589826, 7, 0, 589827, 7, 0, 589828, 7, 0, 589829, 7, 0, 589830, 7, 0, 589831, 7, 0, 589832, 7, 0, 589833, 7, 0, 589834, 1610612739, 0, 589835, 7, 0, 589836, 7, 0, 589837, 7, 0, 589838, 7, 0, 589839, 7, 0, 589840, 7, 0, 589841, 7, 0 )
+
+[node name="redGreenMap" type="TileMap" parent="nav"]
+self_modulate = Color( 1, 1, 1, 0.381216 )
+tile_set = ExtResource( 3 )
+format = 1
+
+[node name="xpBar" parent="." instance=ExtResource( 4 )]
+margin_left = 288.908
+margin_top = 543.006
+margin_right = 544.908
+margin_bottom = 574.006
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -864.0
+margin_top = 576.0
+margin_right = -544.0
+margin_bottom = -1.0
+texture = ExtResource( 5 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="mainAttackButton" parent="NinePatchRect" instance=ExtResource( 6 )]
+
+[node name="towerButton" parent="NinePatchRect" instance=ExtResource( 7 )]
+margin_left = 128.0
+margin_top = -0.698425
+margin_right = 192.0
+margin_bottom = 63.3016
+
+[node name="stoneButton" parent="NinePatchRect" instance=ExtResource( 8 )]
+margin_left = 32.0
+margin_top = -32.094
+margin_right = 92.0
+margin_bottom = 29.906
+
+[node name="waveStartButton" parent="NinePatchRect" instance=ExtResource( 9 )]
+margin_left = 259.009
+margin_right = 306.009
+
+[node name="start_pos1" type="Position2D" parent="."]
+position = Vector2( 104.971, 98.0613 )
+
+[node name="start_pos2" type="Position2D" parent="."]
+position = Vector2( 1057.75, 95.6966 )
+
+[node name="start_pos3" type="Position2D" parent="."]
+position = Vector2( 1055.42, 546.102 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="start_pos4" type="Position2D" parent="."]
+position = Vector2( 98.6423, 541.688 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="end_pos" type="Position2D" parent="."]
+editor/display_folded = true
+position = Vector2( 559.304, 312.97 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="playerHouse" type="Sprite" parent="end_pos"]
+position = Vector2( -0.585815, -0.585785 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fire" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( 21.6098, -3.90543 )
+rotation = 0.268681
+scale = Vector2( 0.564497, 0.557699 )
+texture = ExtResource( 11 )
+
+[node name="fire2" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( -7.60217, 21.2334 )
+rotation = -0.28372
+scale = Vector2( 0.611154, 0.62807 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1408, 768, 64, 64 )
+
+[node name="fire5" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( -17.8068, -4.08389 )
+rotation = 0.269445
+scale = Vector2( 0.754021, 0.774891 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1408, 768, 64, 64 )
+
+[node name="fire3" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( 18.8437, 14.5477 )
+rotation = 0.268681
+scale = Vector2( 0.595933, 0.615935 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1216, 768, 64, 64 )
+
+[node name="fire6" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( 16.1211, -23.7186 )
+rotation = -0.0632593
+scale = Vector2( 0.595933, 0.632591 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 1536, 448, 128, 0 )
+
+[node name="fire4" type="Sprite" parent="end_pos/playerHouse"]
+visible = false
+position = Vector2( -0.781204, -22.0981 )
+rotation = -0.38278
+scale = Vector2( 0.567696, 0.554238 )
+texture = ExtResource( 11 )
+
+[node name="Control" type="Control" parent="end_pos"]
+margin_left = -16.7722
+margin_top = -13.9173
+margin_right = 23.2278
+margin_bottom = 26.0827
+
+[node name="Label" type="Label" parent="end_pos/Control"]
+visible = false
+margin_left = -36.0
+margin_top = -40.0
+margin_right = 70.0
+margin_bottom = -12.0
+custom_styles/normal = SubResource( 1 )
+
+[node name="mob_timer" type="Timer" parent="."]
+editor/display_folded = true
+wait_time = 0.5
+
+[node name="finishedLabel" type="Label" parent="."]
+visible = false
+margin_left = 153.0
+margin_top = 160.0
+margin_right = 421.0
+margin_bottom = 259.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "10 Waves finished!
+Your score: "
+align = 1
+valign = 1
+
+[node name="player" parent="." instance=ExtResource( 13 )]
+position = Vector2( 551, 358 )
+
+[node name="startLabel" type="Label" parent="."]
+margin_left = 273.221
+margin_top = 163.754
+margin_right = 469.221
+margin_bottom = 188.754
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Space to start new wave!"
+
+[node name="defeatLabel" type="Label" parent="."]
+visible = false
+margin_left = 472.173
+margin_top = 232.551
+margin_right = 531.173
+margin_bottom = 263.551
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DEFEAT!
+"
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="mouse_entered" from="end_pos/Control" to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="end_pos/Control" to="." method="_on_Control_mouse_exited"]
+[connection signal="timeout" from="mob_timer" to="." method="_on_mob_timer_timeout"]
+[connection signal="disableStone" from="player" to="." method="_on_player_disableStone"]
+[connection signal="disableTower" from="player" to="." method="_on_player_disableTower"]
+[connection signal="enableStone" from="player" to="." method="_on_player_enableStone"]
+[connection signal="enableTower" from="player" to="." method="_on_player_enableTower"]
+[connection signal="placeFeature" from="player" to="." method="_on_player_placeFeature"]
+[connection signal="playerCanShoot" from="player" to="." method="_on_player_playerCanShoot"]
+[connection signal="playerShoot" from="player" to="." method="_on_player_playerShoot"]
+[connection signal="toggleStonePressed" from="player" to="." method="_on_player_toggleStonePressed"]
+[connection signal="toggleTowerPressed" from="player" to="." method="_on_player_toggleTowerPressed"]
+[connection signal="xpUpdate" from="player" to="xpBar" method="_on_player_xpUpdate"]

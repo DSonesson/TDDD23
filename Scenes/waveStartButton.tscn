@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/UI/red_boxTick.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/grey_boxTick.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/waveStartButton.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="waveStartButton" type="TextureButton"]
+margin_left = 6.151
+margin_top = 8.78717
+margin_right = 53.151
+margin_bottom = 53.7872
+toggle_mode = true
+texture_normal = ExtResource( 1 )
+texture_disabled = ExtResource( 2 )
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -103.396
+margin_top = -136.787
+margin_right = 152.604
+margin_bottom = -8.78717
+custom_styles/normal = SubResource( 1 )
+text = "
+Start a new wave
+Spawns a new wave of mobs.
+Currently on wave XX.
+Toggled with Space."
+align = 1
+[connection signal="mouse_entered" from="." to="." method="_on_waveStartButton_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_waveStartButton_mouse_exited"]

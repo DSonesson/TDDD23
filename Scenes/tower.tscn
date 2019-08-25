@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/test_tower_green.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/medievalStructure_22.png" type="Texture" id=2]
+
+[node name="test_tower_green" type="Node2D"]
+script = ExtResource( 1 )
+fire_range = 200
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_rect = Rect2( 1216, 320, 64, 64 )
+
+[node name="fire_timer" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 34.0
+margin_bottom = 32.0
+toggle_mode = true
+[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]
+[connection signal="toggled" from="TextureButton" to="." method="_on_TextureButton_toggled"]

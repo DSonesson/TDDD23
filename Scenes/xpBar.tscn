@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/xpBar.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UI/blue_circle.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/red_circle.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.482353, 0.160784, 0.627451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+
+[node name="xpBar" type="ProgressBar"]
+margin_right = 256.0
+margin_bottom = 31.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+percent_visible = false
+script = ExtResource( 1 )
+
+[node name="blue_circle" type="Sprite" parent="."]
+position = Vector2( -10.182, 14.8584 )
+scale = Vector2( 1.10609, 1.1503 )
+texture = ExtResource( 2 )
+
+[node name="currentLevelLabel" type="Label" parent="blue_circle"]
+margin_left = -5.0
+margin_top = -6.0
+margin_right = 5.0
+margin_bottom = 8.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1"
+
+[node name="red_circle" type="Sprite" parent="."]
+position = Vector2( 257.937, 14.5345 )
+scale = Vector2( 1.12297, 1.12297 )
+texture = ExtResource( 3 )
+
+[node name="nextLevelLabel" type="Label" parent="red_circle"]
+margin_left = -4.59914
+margin_top = -5.91314
+margin_right = 5.40086
+margin_bottom = 8.08686
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "2"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 14.3781
+margin_top = -97.5244
+margin_right = 235.378
+margin_bottom = 0.475616
+custom_styles/normal = SubResource( 3 )
+align = 1
+[connection signal="mouse_entered" from="." to="." method="_on_xpBar_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_xpBar_mouse_exited"]
